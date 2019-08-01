@@ -1,0 +1,11 @@
+{
+  "defaultArgs": {
+    "default": true
+  },
+  "events": {
+    "test": {
+      "eventName": "override",
+      "extra": true
+    }
+  }
+}

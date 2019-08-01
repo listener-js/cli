@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var listener = require("@listener-js/listener").listener
+var Log = require("@listener-js/log").Log
+var cli = require("../dist/cli").cli
+
+listener({ Log, cli }, { logAll: true })
+
+cli.cli().catch(console.error)
