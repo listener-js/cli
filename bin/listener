@@ -6,4 +6,4 @@ var cli = require("../dist/cli").cli
 
 listener({ Log, cli }, { logAll: true })
 
-cli.cli().catch(console.error)
+cli.cli([]).catch(console.error)
