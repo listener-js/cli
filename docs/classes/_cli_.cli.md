@@ -35,9 +35,15 @@ Defined in cli.ts:12
 
 ###  cli
 
-▸ **cli**(): *`Promise<any>`*
+▸ **cli**(`id`: string[]): *`Promise<any>`*
 
 Defined in cli.ts:14
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`id` | string[] |
 
 **Returns:** *`Promise<any>`*
 

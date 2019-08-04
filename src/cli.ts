@@ -11,13 +11,13 @@ const glob = promisify(globWithCallback)
 export class Cli {
   public listeners = ["cli"]
 
-  public async cli(): Promise<any> {
+  public async cli(id: string[]): Promise<any> {
     const argv = getopts(process.argv.slice(2))
 
     let [eventName, ...args] = argv._
     delete argv._
 
-    let configPath
+    let configPath: string
 
     [eventName, configPath] = await this.updateFromConfig(
       argv, undefined, eventName
@@ -39,7 +39,7 @@ export class Cli {
     return Promise.all(
       paths.map(async (cwd): Promise<any> =>
         instance[eventName](
-          hasArgv && argv.id ? argv.id : [],
+          [...id, ...(hasArgv && argv.id ? argv.id : [])],
           ...args,
           ...(hasArgv ? [{ ...argv, cwd }] : [])
         )
