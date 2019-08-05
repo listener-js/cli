@@ -41,7 +41,10 @@ export class Cli {
         instance[eventName](
           [...id, ...(hasArgv && argv.id ? argv.id : [])],
           ...args,
-          ...(hasArgv ? [{ ...argv, cwd }] : [])
+          ...(hasArgv ?
+            [{ ...argv, cwd }] :
+            []
+          )
         )
       )
     )
