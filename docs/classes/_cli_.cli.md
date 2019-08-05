@@ -29,7 +29,7 @@
 
 • **listeners**: *string[]* =  ["cli"]
 
-*Defined in [cli.ts:12](https://github.com/listener-js/cli/blob/9ebad83/src/cli.ts#L12)*
+*Defined in [cli.ts:12](https://github.com/listener-js/cli/blob/f3d6edb/src/cli.ts#L12)*
 
 ## Methods
 
@@ -37,7 +37,7 @@
 
 ▸ **cli**(`id`: string[]): *`Promise<any>`*
 
-*Defined in [cli.ts:14](https://github.com/listener-js/cli/blob/9ebad83/src/cli.ts#L14)*
+*Defined in [cli.ts:14](https://github.com/listener-js/cli/blob/f3d6edb/src/cli.ts#L14)*
 
 **Parameters:**
 
@@ -53,7 +53,7 @@ ___
 
 ▸ **deepMerge**(`argv`: object, `config`: object): *void*
 
-*Defined in [cli.ts:53](https://github.com/listener-js/cli/blob/9ebad83/src/cli.ts#L53)*
+*Defined in [cli.ts:53](https://github.com/listener-js/cli/blob/f3d6edb/src/cli.ts#L53)*
 
 **Parameters:**
 
@@ -70,7 +70,7 @@ ___
 
 ▸ **extractListenerInstance**(`lib`: `Promise<any>`): *`Promise<any>`*
 
-*Defined in [cli.ts:65](https://github.com/listener-js/cli/blob/9ebad83/src/cli.ts#L65)*
+*Defined in [cli.ts:65](https://github.com/listener-js/cli/blob/f3d6edb/src/cli.ts#L65)*
 
 **Parameters:**
 
@@ -86,7 +86,7 @@ ___
 
 ▸ **findComposerPath**(`configPath`: string, `eventName`: string): *`Promise<string>`*
 
-*Defined in [cli.ts:76](https://github.com/listener-js/cli/blob/9ebad83/src/cli.ts#L76)*
+*Defined in [cli.ts:76](https://github.com/listener-js/cli/blob/f3d6edb/src/cli.ts#L76)*
 
 **Parameters:**
 
@@ -103,7 +103,7 @@ ___
 
 ▸ **globPaths**(`argv`: `ParsedOptions`): *`Promise<string[]>`*
 
-*Defined in [cli.ts:101](https://github.com/listener-js/cli/blob/9ebad83/src/cli.ts#L101)*
+*Defined in [cli.ts:101](https://github.com/listener-js/cli/blob/f3d6edb/src/cli.ts#L101)*
 
 **Parameters:**
 
@@ -119,7 +119,7 @@ ___
 
 ▸ **updateFromConfig**(`argv`: `ParsedOptions`, `cwd`: string | undefined, `eventName`: string): *`Promise<[string, string]>`*
 
-*Defined in [cli.ts:112](https://github.com/listener-js/cli/blob/9ebad83/src/cli.ts#L112)*
+*Defined in [cli.ts:112](https://github.com/listener-js/cli/blob/f3d6edb/src/cli.ts#L112)*
 
 **Parameters:**
 
