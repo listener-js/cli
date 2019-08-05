@@ -29,7 +29,7 @@ test(
         argv, join(root, "test"), "does-not-exist"
       )
     ).toEqual([
-      "does-not-exist", join(root, "test/listener.json")
+      "does-not-exist", join(root, "test/listener.cli.json")
     ])
 
     expect(argv).toEqual({ _: [] })
@@ -46,7 +46,7 @@ test(
         argv, `${root}test`, "test"
       )
     ).toEqual([
-      "override", join(root, "test/listener.json")
+      "override", join(root, "test/listener.cli.json")
     ])
 
     expect(argv).toEqual({

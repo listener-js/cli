@@ -114,7 +114,7 @@ export class Cli {
     cwd: string | undefined,
     eventName: string
   ): Promise<[string, string]> {
-    const configPath = await findUp("listener.json", { cwd })
+    const configPath = await findUp("listener.cli.json", { cwd })
 
     if (configPath) {
       const { defaultArgs, events } = await readJson(
