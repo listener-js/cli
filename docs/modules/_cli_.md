@@ -21,7 +21,7 @@
 
 • **cli**: *[Cli](../classes/_cli_.cli.md)* =  new Cli()
 
-*Defined in [cli.ts:149](https://github.com/listener-js/cli/blob/f3d6edb/src/cli.ts#L149)*
+Defined in cli.ts:149
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 • **glob**: *`__promisify__`* =  promisify(globWithCallback)
 
-*Defined in [cli.ts:9](https://github.com/listener-js/cli/blob/f3d6edb/src/cli.ts#L9)*
+Defined in cli.ts:9
