@@ -14,19 +14,18 @@ export class Cli {
   public async cli(id: string[]): Promise<any> {
     const argv = getopts(process.argv.slice(2))
 
-    let [eventName, ...args] = argv._
+    let [listenerId, ...args] = argv._
     delete argv._
 
-    let configPath: string
-
-    [eventName, configPath] = await this.updateFromConfig(
-      argv, undefined, eventName
-    )
+    let [instanceId, fnId, configPath] =
+      await this.updateFromConfig(
+        argv, undefined, listenerId
+      )
 
     const composerPath = argv.path ||
-      await this.findComposerPath(configPath, eventName)
+      await this.findComposerPath(configPath, instanceId)
 
-    const [instanceId, instance] =
+    const instance =
       await this.extractListenerInstance(
         import(composerPath)
       )
@@ -38,7 +37,7 @@ export class Cli {
 
     return Promise.all(
       paths.map(async (cwd): Promise<any> =>
-        instance[eventName](
+        instance[fnId](
           [...id, ...(hasArgv && argv.id ? argv.id : [])],
           ...args,
           ...(hasArgv ?
@@ -66,22 +65,23 @@ export class Cli {
     lib: Promise<any>
   ): Promise<any> {
     const imp = await lib
+
     for (const key in imp) {
       if (imp[key].listeners) {
-        return [key, imp[key]]
+        return imp[key]
       }
     }
   }
 
   private async findComposerPath(
     configPath: string,
-    eventName: string
+    instanceId: string
   ): Promise<string> {
     const root = configPath
       ? dirname(configPath)
       : process.cwd()
 
-    const pattern = `${root}/**/dist/${eventName}.js`
+    const pattern = `${root}/**/dist/${instanceId}.js`
 
     const paths = await glob(pattern, {
       ignore: "**/node_modules/**"
@@ -92,7 +92,7 @@ export class Cli {
       paths[0]
 
     if (!path) {
-      path = require.resolve(eventName)
+      path = require.resolve(instanceId)
     }
 
     return path
@@ -112,8 +112,8 @@ export class Cli {
   private async updateFromConfig(
     argv: getopts.ParsedOptions,
     cwd: string | undefined,
-    eventName: string
-  ): Promise<[string, string]> {
+    listenerId: string
+  ): Promise<string[]> {
     const configPath = await findUp("listener.cli.json", { cwd })
 
     if (configPath) {
@@ -121,12 +121,12 @@ export class Cli {
         configPath
       )
 
-      const config = events[eventName]
+      const config = events[listenerId]
 
       if (config) {
-        if (config.eventName) {
-          eventName = config.eventName
-          delete config.eventName
+        if (config.listenerId) {
+          listenerId = config.listenerId
+          delete config.listenerId
         }
 
         this.deepMerge(argv, config)
@@ -142,7 +142,7 @@ export class Cli {
       }
     }
 
-    return [eventName, configPath]
+    return [...listenerId.split(/\./).slice(0, 2), configPath]
   }
 }
 

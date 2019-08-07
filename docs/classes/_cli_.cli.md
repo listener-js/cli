@@ -53,7 +53,7 @@ ___
 
 ▸ **deepMerge**(`argv`: object, `config`: object): *void*
 
-Defined in cli.ts:53
+Defined in cli.ts:52
 
 **Parameters:**
 
@@ -70,7 +70,7 @@ ___
 
 ▸ **extractListenerInstance**(`lib`: `Promise<any>`): *`Promise<any>`*
 
-Defined in cli.ts:65
+Defined in cli.ts:64
 
 **Parameters:**
 
@@ -84,7 +84,7 @@ ___
 
 ### `Private` findComposerPath
 
-▸ **findComposerPath**(`configPath`: string, `eventName`: string): *`Promise<string>`*
+▸ **findComposerPath**(`configPath`: string, `instanceId`: string): *`Promise<string>`*
 
 Defined in cli.ts:76
 
@@ -93,7 +93,7 @@ Defined in cli.ts:76
 Name | Type |
 ------ | ------ |
 `configPath` | string |
-`eventName` | string |
+`instanceId` | string |
 
 **Returns:** *`Promise<string>`*
 
@@ -117,7 +117,7 @@ ___
 
 ### `Private` updateFromConfig
 
-▸ **updateFromConfig**(`argv`: `ParsedOptions`, `cwd`: string | undefined, `eventName`: string): *`Promise<[string, string]>`*
+▸ **updateFromConfig**(`argv`: `ParsedOptions`, `cwd`: string | undefined, `listenerId`: string): *`Promise<string[]>`*
 
 Defined in cli.ts:112
 
@@ -127,6 +127,6 @@ Name | Type |
 ------ | ------ |
 `argv` | `ParsedOptions` |
 `cwd` | string \| undefined |
-`eventName` | string |
+`listenerId` | string |
 
-**Returns:** *`Promise<[string, string]>`*
+**Returns:** *`Promise<string[]>`*
