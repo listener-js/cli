@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@listener-js/listener": "1.9.0",
-    "@listener-js/log": "1.16.0"
+    "@listener-js/log": "1.17.0"
   },
   "devDependencies": {
     "@types/jest": "24.0.16",

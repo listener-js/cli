@@ -4,6 +4,6 @@ var listener = require("@listener-js/listener").listener
 var log = require("@listener-js/log").log
 var cli = require("../dist/cli").cli
 
-listener({ cli, log }, { logAll: true })
+listener({ cli, log })
 
 cli.cli([]).catch(console.error)
