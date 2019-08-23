@@ -1,8 +1,8 @@
-> **[cli](README.md)**
+> **[@listener-js/cli](README.md)**
 
 [Globals](globals.md) /
 
-# cli
+# @listener-js/cli
 
 ## Index
 

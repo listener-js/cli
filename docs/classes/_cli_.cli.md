@@ -1,4 +1,4 @@
-> **[cli](../README.md)**
+> **[@listener-js/cli](../README.md)**
 
 [Globals](../globals.md) / ["cli"](../modules/_cli_.md) / [Cli](_cli_.cli.md) /
 

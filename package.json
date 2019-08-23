@@ -1,18 +1,19 @@
 {
-  "name": "cli",
+  "name": "@listener-js/cli",
   "version": "0.0.1",
-  "description": "",
+  "description": "Listener CLI",
   "keywords": [
-    ""
+    "listener",
+    "cli"
   ],
-  "author": " <>",
+  "author": "Listener <emit@listener.events>",
   "main": "dist/cli.js",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com//cli.git"
   },
   "license": "MIT",
-  "homepage": "https://github.com//cli#readme",
+  "homepage": "https://github.com/listener-js/cli#readme",
   "scripts": {
     "fix": "npm run lint -- --fix",
     "lint": "eslint --ignore-path .gitignore --ext=js .",
