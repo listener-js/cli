@@ -14,21 +14,26 @@ export class Cli {
   public async cli(id: string[]): Promise<any> {
     const argv = getopts(process.argv.slice(2))
 
-    let [listenerId, ...args] = argv._
+    const [listenerId, ...args] = argv._
     delete argv._
 
-    let [instanceId, fnId, configPath] =
-      await this.updateFromConfig(
-        argv, undefined, listenerId
-      )
+    const [
+      instanceId,
+      fnId,
+      configPath,
+    ] = await this.updateFromConfig(
+      argv,
+      undefined,
+      listenerId
+    )
 
-    const composerPath = argv.path ||
-      await this.findComposerPath(configPath, instanceId)
+    const composerPath =
+      argv.path ||
+      (await this.findComposerPath(configPath, instanceId))
 
-    const instance =
-      await this.extractListenerInstance(
-        import(composerPath)
-      )
+    const instance = await this.extractListenerInstance(
+      import(composerPath)
+    )
 
     listener({ [instanceId]: instance })
 
@@ -36,15 +41,13 @@ export class Cli {
     const paths = await this.globPaths(argv)
 
     return Promise.all(
-      paths.map(async (cwd): Promise<any> =>
-        instance[fnId](
-          [...id, ...(hasArgv && argv.id ? argv.id : [])],
-          ...args,
-          ...(hasArgv ?
-            [{ ...argv, cwd }] :
-            []
+      paths.map(
+        async (cwd): Promise<any> =>
+          instance[fnId](
+            [...id, ...(hasArgv && argv.id ? argv.id : [])],
+            ...args,
+            ...(hasArgv ? [{ ...argv, cwd }] : [])
           )
-        )
       )
     )
   }
@@ -84,12 +87,13 @@ export class Cli {
     const pattern = `${root}/**/dist/${instanceId}.js`
 
     const paths = await glob(pattern, {
-      ignore: "**/node_modules/**"
+      ignore: "**/node_modules/**",
     })
 
     let path =
-      paths.find((path): boolean => path.indexOf("/dist/") > -1) ||
-      paths[0]
+      paths.find(
+        (path): boolean => path.indexOf("/dist/") > -1
+      ) || paths[0]
 
     if (!path) {
       path = require.resolve(instanceId)
@@ -105,7 +109,7 @@ export class Cli {
       return [process.cwd()]
     }
     return await glob(argv.paths, {
-      ignore: "**/node_modules/**"
+      ignore: "**/node_modules/**",
     })
   }
 
@@ -114,7 +118,9 @@ export class Cli {
     cwd: string | undefined,
     listenerId: string
   ): Promise<string[]> {
-    const configPath = await findUp("listener.cli.json", { cwd })
+    const configPath = await findUp("listener.cli.json", {
+      cwd,
+    })
 
     if (configPath) {
       const { defaultArgs, events } = await readJson(
@@ -134,7 +140,8 @@ export class Cli {
         if (defaultArgs) {
           if (typeof defaultArgs.paths === "string") {
             defaultArgs.paths = join(
-              dirname(configPath), defaultArgs.paths
+              dirname(configPath),
+              defaultArgs.paths
             )
           }
           Object.assign(argv, { ...defaultArgs, ...argv })
@@ -142,7 +149,10 @@ export class Cli {
       }
     }
 
-    return [...listenerId.split(/\./).slice(0, 2), configPath]
+    return [
+      ...listenerId.split(/\./).slice(0, 2),
+      configPath,
+    ]
   }
 }
 

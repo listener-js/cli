@@ -1,6 +1,4 @@
-> **[@listener-js/cli](../README.md)**
-
-[Globals](../globals.md) / ["cli"](_cli_.md) /
+[@listener-js/cli](../README.md) › [Globals](../globals.md) › ["cli"](_cli_.md)
 
 # External module: "cli"
 
@@ -21,12 +19,12 @@
 
 • **cli**: *[Cli](../classes/_cli_.cli.md)* =  new Cli()
 
-Defined in cli.ts:149
+Defined in cli.ts:159
 
 ___
 
 ### `Const` glob
 
-• **glob**: *`__promisify__`* =  promisify(globWithCallback)
+• **glob**: *__promisify__* =  promisify(globWithCallback)
 
 Defined in cli.ts:9

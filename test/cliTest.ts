@@ -14,43 +14,49 @@ test("can't find composer", async (): Promise<void> => {
 })
 
 test("find composer", async (): Promise<void> => {
-  expect(
-    await cli["findComposerPath"](root, "cli")
-  ).toBe(join(root, "dist/cli.js"))
+  expect(await cli["findComposerPath"](root, "cli")).toBe(
+    join(root, "dist/cli.js")
+  )
 })
 
-test(
-  "update from config without event",
-  async (): Promise<void> => {
-    const argv: getopts.ParsedOptions = { _: [] }
+test("update from config without event", async (): Promise<
+  void
+> => {
+  const argv: getopts.ParsedOptions = { _: [] }
 
-    expect(
-      await cli["updateFromConfig"](
-        argv, join(root, "test"), "does-not-exist"
-      )
-    ).toEqual([
-      "does-not-exist", join(root, "test/listener.cli.json")
-    ])
+  expect(
+    await cli["updateFromConfig"](
+      argv,
+      join(root, "test"),
+      "does-not-exist"
+    )
+  ).toEqual([
+    "does-not-exist",
+    join(root, "test/listener.cli.json"),
+  ])
 
-    expect(argv).toEqual({ _: [] })
-  }
-)
+  expect(argv).toEqual({ _: [] })
+})
 
-test(
-  "update from config with event",
-  async (): Promise<void> => {
-    const argv: getopts.ParsedOptions = { _: [] }
+test("update from config with event", async (): Promise<
+  void
+> => {
+  const argv: getopts.ParsedOptions = { _: [] }
 
-    expect(
-      await cli["updateFromConfig"](
-        argv, `${root}test`, "test"
-      )
-    ).toEqual([
-      "override", join(root, "test/listener.cli.json")
-    ])
+  expect(
+    await cli["updateFromConfig"](
+      argv,
+      `${root}test`,
+      "test"
+    )
+  ).toEqual([
+    "override",
+    join(root, "test/listener.cli.json"),
+  ])
 
-    expect(argv).toEqual({
-      _: [], default: true, extra: true
-    })
-  }
-)
+  expect(argv).toEqual({
+    _: [],
+    default: true,
+    extra: true,
+  })
+})

@@ -1,6 +1,4 @@
-> **[@listener-js/cli](../README.md)**
-
-[Globals](../globals.md) / ["cli"](../modules/_cli_.md) / [Cli](_cli_.cli.md) /
+[@listener-js/cli](../README.md) › [Globals](../globals.md) › ["cli"](../modules/_cli_.md) › [Cli](_cli_.cli.md)
 
 # Class: Cli
 
@@ -35,7 +33,7 @@ Defined in cli.ts:12
 
 ###  cli
 
-▸ **cli**(`id`: string[]): *`Promise<any>`*
+▸ **cli**(`id`: string[]): *Promise‹any›*
 
 Defined in cli.ts:14
 
@@ -45,7 +43,7 @@ Name | Type |
 ------ | ------ |
 `id` | string[] |
 
-**Returns:** *`Promise<any>`*
+**Returns:** *Promise‹any›*
 
 ___
 
@@ -53,7 +51,7 @@ ___
 
 ▸ **deepMerge**(`argv`: object, `config`: object): *void*
 
-Defined in cli.ts:52
+Defined in cli.ts:55
 
 **Parameters:**
 
@@ -68,25 +66,25 @@ ___
 
 ### `Private` extractListenerInstance
 
-▸ **extractListenerInstance**(`lib`: `Promise<any>`): *`Promise<any>`*
+▸ **extractListenerInstance**(`lib`: Promise‹any›): *Promise‹any›*
 
-Defined in cli.ts:64
+Defined in cli.ts:67
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`lib` | `Promise<any>` |
+`lib` | Promise‹any› |
 
-**Returns:** *`Promise<any>`*
+**Returns:** *Promise‹any›*
 
 ___
 
 ### `Private` findComposerPath
 
-▸ **findComposerPath**(`configPath`: string, `instanceId`: string): *`Promise<string>`*
+▸ **findComposerPath**(`configPath`: string, `instanceId`: string): *Promise‹string›*
 
-Defined in cli.ts:76
+Defined in cli.ts:79
 
 **Parameters:**
 
@@ -95,38 +93,38 @@ Name | Type |
 `configPath` | string |
 `instanceId` | string |
 
-**Returns:** *`Promise<string>`*
+**Returns:** *Promise‹string›*
 
 ___
 
 ### `Private` globPaths
 
-▸ **globPaths**(`argv`: `ParsedOptions`): *`Promise<string[]>`*
+▸ **globPaths**(`argv`: ParsedOptions): *Promise‹string[]›*
 
-Defined in cli.ts:101
+Defined in cli.ts:105
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`argv` | `ParsedOptions` |
+`argv` | ParsedOptions |
 
-**Returns:** *`Promise<string[]>`*
+**Returns:** *Promise‹string[]›*
 
 ___
 
 ### `Private` updateFromConfig
 
-▸ **updateFromConfig**(`argv`: `ParsedOptions`, `cwd`: string | undefined, `listenerId`: string): *`Promise<string[]>`*
+▸ **updateFromConfig**(`argv`: ParsedOptions, `cwd`: string | undefined, `listenerId`: string): *Promise‹string[]›*
 
-Defined in cli.ts:112
+Defined in cli.ts:116
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`argv` | `ParsedOptions` |
-`cwd` | string \| undefined |
+`argv` | ParsedOptions |
+`cwd` | string &#124; undefined |
 `listenerId` | string |
 
-**Returns:** *`Promise<string[]>`*
+**Returns:** *Promise‹string[]›*
