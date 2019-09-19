@@ -19,7 +19,7 @@
 
 • **cli**: *[Cli](../classes/_cli_.cli.md)* =  new Cli()
 
-Defined in cli.ts:159
+Defined in cli.ts:160
 
 ___
 

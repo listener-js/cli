@@ -35,21 +35,22 @@ export class Cli {
       import(composerPath)
     )
 
-    listener({ [instanceId]: instance })
+    const promise = listener([], { [instanceId]: instance })
 
     const hasArgv = Object.keys(argv).length
     const paths = await this.globPaths(argv)
 
-    return Promise.all(
-      paths.map(
+    return Promise.all([
+      promise,
+      ...paths.map(
         async (cwd): Promise<any> =>
           instance[fnId](
             [...id, ...(hasArgv && argv.id ? argv.id : [])],
             ...args,
             ...(hasArgv ? [{ ...argv, cwd }] : [])
           )
-      )
-    )
+      ),
+    ])
   }
 
   private deepMerge(argv: object, config: object): void {

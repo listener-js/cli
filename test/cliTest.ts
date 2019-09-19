@@ -5,7 +5,7 @@ import { join } from "path"
 
 const root = join(__dirname, "../")
 
-listener({ cli })
+listener([], { cli })
 
 test("can't find composer", async (): Promise<void> => {
   await expect(

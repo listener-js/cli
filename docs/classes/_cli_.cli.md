@@ -51,7 +51,7 @@ ___
 
 ▸ **deepMerge**(`argv`: object, `config`: object): *void*
 
-Defined in cli.ts:55
+Defined in cli.ts:56
 
 **Parameters:**
 
@@ -68,7 +68,7 @@ ___
 
 ▸ **extractListenerInstance**(`lib`: Promise‹any›): *Promise‹any›*
 
-Defined in cli.ts:67
+Defined in cli.ts:68
 
 **Parameters:**
 
@@ -84,7 +84,7 @@ ___
 
 ▸ **findComposerPath**(`configPath`: string, `instanceId`: string): *Promise‹string›*
 
-Defined in cli.ts:79
+Defined in cli.ts:80
 
 **Parameters:**
 
@@ -101,7 +101,7 @@ ___
 
 ▸ **globPaths**(`argv`: ParsedOptions): *Promise‹string[]›*
 
-Defined in cli.ts:105
+Defined in cli.ts:106
 
 **Parameters:**
 
@@ -117,7 +117,7 @@ ___
 
 ▸ **updateFromConfig**(`argv`: ParsedOptions, `cwd`: string | undefined, `listenerId`: string): *Promise‹string[]›*
 
-Defined in cli.ts:116
+Defined in cli.ts:117
 
 **Parameters:**
 
