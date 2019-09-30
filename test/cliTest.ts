@@ -1,11 +1,11 @@
-import { listener } from "@listener-js/listener"
+import { load } from "@listener-js/listener"
 import * as getopts from "getopts"
-import { cli } from "../"
+import cli from "../"
 import { join } from "path"
 
 const root = join(__dirname, "../")
 
-listener([], { cli })
+load([], { cli })
 
 test("can't find composer", async (): Promise<void> => {
   await expect(

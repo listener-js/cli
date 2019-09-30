@@ -1,4 +1,4 @@
-import { listener } from "@listener-js/listener"
+import { load } from "@listener-js/listener"
 import * as findUp from "find-up"
 import { readJson } from "fs-extra"
 import * as getopts from "getopts"
@@ -9,9 +9,7 @@ import { promisify } from "util"
 const glob = promisify(globWithCallback)
 
 export class Cli {
-  public listeners = ["cli"]
-
-  public async cli(id: string[]): Promise<any> {
+  public async cli(lid: string[]): Promise<any> {
     const argv = getopts(process.argv.slice(2))
 
     const [listenerId, ...args] = argv._
@@ -35,7 +33,7 @@ export class Cli {
       import(composerPath)
     )
 
-    const promise = listener([], { [instanceId]: instance })
+    const promise = load([], { [instanceId]: instance })
 
     const hasArgv = Object.keys(argv).length
     const paths = await this.globPaths(argv)
@@ -45,7 +43,10 @@ export class Cli {
       ...paths.map(
         async (cwd): Promise<any> =>
           instance[fnId](
-            [...id, ...(hasArgv && argv.id ? argv.id : [])],
+            [
+              ...lid,
+              ...(hasArgv && argv.id ? argv.id : []),
+            ],
             ...args,
             ...(hasArgv ? [{ ...argv, cwd }] : [])
           )
@@ -157,4 +158,4 @@ export class Cli {
   }
 }
 
-export const cli = new Cli()
+export default new Cli()

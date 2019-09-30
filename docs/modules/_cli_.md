@@ -10,18 +10,9 @@
 
 ### Variables
 
-* [cli](_cli_.md#const-cli)
 * [glob](_cli_.md#const-glob)
 
 ## Variables
-
-### `Const` cli
-
-• **cli**: *[Cli](../classes/_cli_.cli.md)* =  new Cli()
-
-Defined in cli.ts:160
-
-___
 
 ### `Const` glob
 

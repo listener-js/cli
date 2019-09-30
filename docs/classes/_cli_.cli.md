@@ -8,10 +8,6 @@
 
 ## Index
 
-### Properties
-
-* [listeners](_cli_.cli.md#listeners)
-
 ### Methods
 
 * [cli](_cli_.cli.md#cli)
@@ -21,27 +17,19 @@
 * [globPaths](_cli_.cli.md#private-globpaths)
 * [updateFromConfig](_cli_.cli.md#private-updatefromconfig)
 
-## Properties
-
-###  listeners
-
-• **listeners**: *string[]* =  ["cli"]
-
-Defined in cli.ts:12
-
 ## Methods
 
 ###  cli
 
-▸ **cli**(`id`: string[]): *Promise‹any›*
+▸ **cli**(`lid`: string[]): *Promise‹any›*
 
-Defined in cli.ts:14
+Defined in cli.ts:12
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`id` | string[] |
+`lid` | string[] |
 
 **Returns:** *Promise‹any›*
 
@@ -51,7 +39,7 @@ ___
 
 ▸ **deepMerge**(`argv`: object, `config`: object): *void*
 
-Defined in cli.ts:56
+Defined in cli.ts:57
 
 **Parameters:**
 
@@ -68,7 +56,7 @@ ___
 
 ▸ **extractListenerInstance**(`lib`: Promise‹any›): *Promise‹any›*
 
-Defined in cli.ts:68
+Defined in cli.ts:69
 
 **Parameters:**
 
@@ -84,7 +72,7 @@ ___
 
 ▸ **findComposerPath**(`configPath`: string, `instanceId`: string): *Promise‹string›*
 
-Defined in cli.ts:80
+Defined in cli.ts:81
 
 **Parameters:**
 
@@ -101,7 +89,7 @@ ___
 
 ▸ **globPaths**(`argv`: ParsedOptions): *Promise‹string[]›*
 
-Defined in cli.ts:106
+Defined in cli.ts:107
 
 **Parameters:**
 
@@ -117,7 +105,7 @@ ___
 
 ▸ **updateFromConfig**(`argv`: ParsedOptions, `cwd`: string | undefined, `listenerId`: string): *Promise‹string[]›*
 
-Defined in cli.ts:117
+Defined in cli.ts:118
 
 **Parameters:**
 
